@@ -1,13 +1,10 @@
-<h1>New Note</h1>
-
-<body>
-    <form action='/notes' method="POST">
-        Content:
-        <input type="text" name="content"><br>
-
-        <br><br>
-        Create Your Note:
-
-        <input type="submit" name="submit" id="submit">
-    </form>
-</body>
+<div class="home">
+<h1>New Note</h1><br>
+    <body>
+        <form action='/notes' method="POST" id="newform">
+            <textarea rows="10" cols="40" name="content" form="newform" placeholder="Make your note here!"></textarea>
+            <br><br>
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </body>
+</div>
