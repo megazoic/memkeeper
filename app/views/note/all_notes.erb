@@ -1,0 +1,8 @@
+<h1>Here are all of your notes <%= current_user.username %>.</h1>
+
+<% Note.all.each do |note| %>
+    <%= note.content %><br><br>
+<% end %>
+
+
+<a href='/logout'>Logout</a>

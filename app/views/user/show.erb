@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Welcome back, <%= current_user.username %>!</h1><br>
+
+
+<h2>Your Notes:</h2>
+    <% if current_user.notes.empty? %>
+        <a href="/notes/new">Take some notes!</a><br><br>
+    <% else %>
+        <% current_user.notes.each do |note| %> 
+            <p><%= note.content %></p>
+            <form method="POST"
+            action="/notes/<%= note.id %>/delete">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Note">
+        </form>
+
+        <button class="btn btn-medium"><a href="/notes/<%= note.id %>/edit">Edit Note</a></button>
+        <% end %><br>
+    <% end %>
+
+    <a href='/logout'>Logout</a>
+    </div>
