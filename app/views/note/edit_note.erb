@@ -1,10 +1,11 @@
-<h1>Edit Note</h1>
+<div class="home">
+    <h1>Edit Note</h1><br>
 
-<form method="POST" action="/notes/<%= @note.id %>" id="editform">
-    <input type="hidden" id="hidden" name="_method" value="PATCH">
-    <textarea rows="9" cols="70" name="content" form="editform"><%= @note.content %></textarea>
-    <br><br>
-    <input type="submit" name="submit">
-</form>
- 
+    <form method="POST" action="/notes/<%= @note.id %>" id="editform">
+        <input type="hidden" id="hidden" name="_method" value="PATCH">
+        <textarea rows="9" cols="70" name="content" form="editform"><%= @note.content %></textarea>
+        <br><br>
+        <input type="submit" name="submit">
+    </form>
+</div> 
 

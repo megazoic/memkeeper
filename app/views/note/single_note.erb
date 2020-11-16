@@ -1,9 +1,11 @@
-<%= @note.content %>
+<div class="home">
+      <p><%= @note.content %><p><br>
 
-<form method="POST"
-      action="/notes/<%= @note.id %>/delete">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Note">
-</form>
+      <form method="POST"
+            action="/notes/<%= @note.id %>/delete">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Note">
+      </form>
 
-<a href="/notes/<%= @note.id %>/edit">Edit Note</a>
+      <button class="btn btn-medium"><a href="/notes/<%= @note.id %>/edit">Edit Note</a></button>
+</div>

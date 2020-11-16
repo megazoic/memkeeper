@@ -1,24 +1,16 @@
 <div class="home">
-<h1>Welcome back, <%= current_user.username %>!</h1><br>
+    <h1>Welcome back, <%= current_user.username %>!</h1><br>
+
+    <h2>Here Are Your Notes</h2><br><br>
 
     <div class="list">
-        <h2>Your Notes</h2><br><br>
-            <% if current_user.notes.empty? %>
-                <a href="/notes/new">Take some notes!</a><br><br>
-            <% else %>
-                <% current_user.notes.each do |note| %> 
-                    <div class="note-content"><p><%= note.content %></p></div>
-                    <form method="POST"
-                    action="/notes/<%= note.id %>/delete">
-                    <input id="hidden" type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Delete Note">
-                </form>
-
-                
-                <button class="btn btn-medium"><a href="/notes/<%= note.id %>/edit">Edit Note</a></button><br><br>
-                <% end %>
+        <% if current_user.notes.empty? %>
+            <a href="/notes/new">Take some notes!</a><br><br>
+        <% else %>
+            <% current_user.notes.each do |note| %> 
+                <div class="note-content"><a href="/notes/<%= note.id %>"><%= note.content %></a></div><br>
             <% end %>
-            <br><br>
+        <% end %>
     </div>
 </div>
 
