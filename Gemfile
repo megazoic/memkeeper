@@ -11,6 +11,3 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
-group :development do
-  gem "capistrano", "~> 3.16", require: false
-end

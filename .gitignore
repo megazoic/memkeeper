@@ -2,3 +2,4 @@ Capfile
 *~
 deploy
 deploy.rb
+db/development.sqlite
