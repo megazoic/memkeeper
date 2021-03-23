@@ -3,3 +3,4 @@ Capfile
 deploy
 deploy.rb
 db/development.sqlite
+.DS_Store

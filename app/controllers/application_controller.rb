@@ -1,3 +1,5 @@
+require 'active_support/core_ext/time'
+
 class ApplicationController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
     enable :sessions
@@ -6,8 +8,13 @@ class ApplicationController < Sinatra::Base
 
     get '/' do 
         erb :index
-    end 
-
+    end
+    before do # need to comment this for RSpec
+      next if request.path_info == '/login'
+      if session[:user_id].nil?
+        redirect '/login'
+      end
+    end
     helpers do 
         def logged_in?(session)
             !!session[:user_id]

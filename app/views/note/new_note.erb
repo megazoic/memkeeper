@@ -3,7 +3,18 @@
     <body>
         <form action='/notes' method="POST" id="newform">
             <textarea rows="10" cols="40" name="content" form="newform" placeholder="Make your note here!"></textarea>
-            <br><br>
+            <br>
+            <div>
+            <label for="tag_field">Assign a tag</label>
+            <select name="tag" id="tag_field">
+            <option value="0">Other</option>
+            <%@tags.each do |t|%>
+              <option value="<%= t.id %>" ><%= "#{t.name}" %></option>
+            <%end%>
+            </select
+            </div>
+            
+            <br>
             <input type="submit" name="submit" id="submit">
         </form>
     </body>

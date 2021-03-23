@@ -1,52 +1,43 @@
 class NotesController < ApplicationController
     
     get '/notes' do 
-        @note = Note.find_by_id(params[:id])
-        if logged_in?(session)
-            erb :'/user/show'
-        else
-            redirect to '/login'
-        end
+        @notes = current_user.notes
+        #puts @note.methods.sort
+        #current_user.notes.each do |note|
+        #    puts "content: #{note.content}, time: #{note.ts.localtime}, tn: #{note.tag_id}"
+        #end
+        erb :'/user/show'
     end 
 
-    get '/notes/new' do 
-        if logged_in?(session)
-            erb :'/note/new_note'
-        else
-            redirect to '/login'
-        end
+    get '/notes/new' do
+      @tags = Tag.all
+      erb :'/note/new_note'
     end 
     
-    post '/notes' do 
+    post '/notes' do
         if params[:content] == ""
             redirect to '/notes/new'
         else
-            @note = Note.create(content: params[:content])
-            current_user.notes << @note
-            redirect to '/notes'
+          note = Note.create(content: params[:content], ts: Time.now(), tag_id: params["tag"])
+          current_user.notes << note
+          redirect to '/notes'
         end
     end 
 
     get '/notes/:id' do 
-        if logged_in?(session)
             @note = Note.find_by_id(params[:id])
+            @tag = Tag.find(@note.tag_id)
             erb :'/note/single_note'
-        else
-            redirect to '/login'
-        end
     end 
 
     get '/notes/:id/edit' do 
-        if logged_in?(session)
             @note = Note.find_by_id(params[:id])
+            @tags = Tag.all
             if @note && @note.user == current_user
                 erb :'/note/edit_note'
             else
                 redirect to '/notes'
             end
-        else
-            redirect to '/login'
-        end
     end
 
     patch '/notes/:id' do 

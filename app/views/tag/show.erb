@@ -1,0 +1,10 @@
+<div class="home">
+<h1>Tags</h1><br>
+    <body>
+    <ul>
+    <% @tags.each do |t| %>
+      <li><a href="/tag/<%= t.id %>/edit" ><%= t.name %></a> | <%= t.title %></li>
+    <% end %>
+    </ul>
+    </body>
+</div>

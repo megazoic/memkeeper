@@ -4,7 +4,18 @@
     <form method="POST" action="/notes/<%= @note.id %>" id="editform">
         <input type="hidden" id="hidden" name="_method" value="PATCH">
         <textarea rows="9" cols="70" name="content" form="editform"><%= @note.content %></textarea>
-        <br><br>
+        <br>
+        <div>
+        <label for="tag_field">Assign a tag</label>
+        <select name="tag" id="tag_field">
+        <option value="0">Other</option>
+        <%@tags.each do |t|%>
+          <option value="<%= t.id %>" <% if @note.tag_id == t.id %> selected <% end %>><%= "#{t.name}" %></option>
+        <%end%>
+        </select
+        </div>
+        
+        <br>
         <input type="submit" name="submit">
     </form>
 </div> 

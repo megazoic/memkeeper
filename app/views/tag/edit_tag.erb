@@ -1,0 +1,16 @@
+<div class="home">
+<h1>Edit Tag</h1><br>
+    <body>
+        <form action='/tags' method="POST" id="newform">
+        <input type="hidden" value=<%= @tag.id %> name="edit_id">
+            <textarea rows="2" cols="20" name="title" form="newform" placeholder="Desc your tag here!"><%= @tag.title %></textarea>
+            <br>
+            <textarea rows="1" cols="10" name="name" form="newform" placeholder="Name your tag here!"><%= @tag.name %></textarea>
+            <br>
+            <input type="checkbox" name="delete_me" value="1" id="delete_me"/>
+            <label for="delete_me">Delete this Tag?</lable>
+            <br/>
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </body>
+</div>

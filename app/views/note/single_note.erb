@@ -1,5 +1,5 @@
 <div class="home">
-      <p><%= @note.content %><p><br>
+      <p><%= @note.content %> | <%= @note.ts.localtime %> | <%= @tag.name%><p><br>
 
       <form method="POST"
             action="/notes/<%= @note.id %>/delete">
