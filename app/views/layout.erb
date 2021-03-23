@@ -17,7 +17,12 @@
     background-size: auto;
     background-repeat: repeat;
     }
-
+    .container-fluid{
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding-top: 2cm;
+    }
     h1 {
         font-weight: 300;
     }
@@ -139,27 +144,14 @@
 
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-<div class="navbar-inner">
-  <div class="container">
-    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <a class="brand" href="/notes">Note Taker</a>
-    <div class="nav-collapse">
-      <ul class="nav">
-<!--           <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li> -->
-        <li><a href="/notes/new">New Note</a></li>
-        <li><a href="/notes">All Notes</a></li>
-        <li><a href="/tags">Tags</a></li>
-        <li><a href="/logout">Logout</a></li>
-          </ul>
-    </div><!-- /.nav-collapse -->
-  </div><!-- /.container -->
-</div><!-- /.navbar-inner -->
-</div><!-- /.navbar -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm"><a href="/notes"><h3>All</h3></a></div>
+      <div class="col-sm"><a href="/notes/new"><h3>New</h3></a></div>
+      <div class="col-sm"><a href="/tags"><h3>Tags</h3></a></div>
+      <div class="col-sm"><a href="/logout"><h3>Logout</h3></a></div>
+    </div>
+  </div><!-- /.container-fluid -->
 
   
 <%= yield %>
