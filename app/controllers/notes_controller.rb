@@ -18,7 +18,7 @@ class NotesController < ApplicationController
         if params[:content] == ""
             redirect to '/notes/new'
         else
-          note = Note.create(content: params[:content], ts: Time.now(), tag_id: params["tag"])
+          note = Note.create(content: params[:content], ts: Time.now(), tag_id: params["tag"], title: params[:title])
           current_user.notes << note
           redirect to '/notes'
         end
@@ -40,13 +40,13 @@ class NotesController < ApplicationController
             end
     end
 
-    patch '/notes/:id' do 
+    post '/notes/:id' do 
         @note = Note.find_by_id(params[:id])
 
         if params[:content] == ""
             redirect to '/notes/#{@note.id}/edit'
         else
-            @note.update(content: params[:content])
+            @note.update(content: params[:content], tag_id: params[:tag], title: params[:title])
             redirect to '/notes'
         end
     end 

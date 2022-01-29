@@ -8,7 +8,7 @@
             <a href="/notes/new">Take some notes!</a><br><br>
         <% else %>
             <% current_user.notes.each do |note| %> 
-                <div class="note-content"><a href="/notes/<%= note.id %>"><%= note.content %></a> | <%= note.ts.localtime %> | <%= Tag.find(note.tag_id).name %></div><br>
+                <div class="note-content"><a href="/notes/<%= note.id %>"><%= note.title %></a> | <%= note.ts.localtime %> | <%= Tag.find(note.tag_id).name %></div><br>
             <% end %>
         <% end %>
     </div>

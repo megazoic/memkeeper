@@ -4,3 +4,5 @@ deploy
 deploy.rb
 db/development.sqlite
 .DS_Store
+seeds.rb
+*.sqlite

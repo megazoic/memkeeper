@@ -2,7 +2,7 @@
     <h1>Edit Note</h1><br>
 
     <form method="POST" action="/notes/<%= @note.id %>" id="editform">
-        <input type="hidden" id="hidden" name="_method" value="PATCH">
+      <textarea rows="1" cols="20" name="title" form="editform"><%= @note.title %></textarea>
         <textarea rows="9" cols="70" name="content" form="editform"><%= @note.content %></textarea>
         <br>
         <div>

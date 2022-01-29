@@ -6,11 +6,13 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "my_application_secret"
     set :views, "app/views"
 
-    get '/' do 
+    get '/' do
+      print "session id: "
+      puts session[:user_id]
         erb :index
     end
     before do # need to comment this for RSpec
-      next if request.path_info == '/login'
+      next if request.path_info == '/login' || request.path_info == '/signup'
       if session[:user_id].nil?
         redirect '/login'
       end
